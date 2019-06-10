@@ -210,6 +210,18 @@
         </div>
       </form>
     </div>
+    <div class="login-div modal p-5 mx-auto">
+      <h4 class="mb-5 text-center">Log into MRandMRS</h4>
+      <form class="" action="index.html" method="post">
+        <input type="email" name="email" class="w-100" placeholder="Your email address">
+        <input type="password" name="password" class="w-100" placeholder="Password">
+        <input type="submit" class="w-100 border-0" value="GO">
+        <div class="text-center">
+          <p>Forgot password?</p>
+          <p>Not a member yet? <a href="#">Join now!</a> </p>
+        </div>
+      </form>
+    </div>
     <section class="hero">
       <nav class="navbar navbar-expand-lg px-0">
         <a class="navbar-brand mr-0" href="index.html">
@@ -299,7 +311,7 @@
       </div>
       <form class="" action="index.html" method="post">
       <div class="row mx-0">
-        <div class="col-xs-12 request-form position-relative">
+        <div class="col-xs-12 request-form position-relative mx-auto">
           <div class="d-inline-flex input-div align-middle">
             <input class="d-block border-0" type="text" name="budget" placeholder="Enter Your Budget">
           </div>
@@ -325,7 +337,7 @@
       $("#sign-in-link").click((e) => {
         e.preventDefault();
         $(".overlay").show();
-        $(".modal").show();
+        $(".login-div").show();
       })
 
       $(".overlay").click(() => {
