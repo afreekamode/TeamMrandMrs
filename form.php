@@ -40,10 +40,10 @@ if (isset($_POST['submit'])){
 
 				//used to check output of each row data 
 				while($row_check = mysqli_fetch_assoc($result_check)){
-					
+
 					
 					//the header redirect the user to the index.php page
-				header("location: index.php");
+				header("location: dashboard.html");
 				}
 			}else{
 				//if an error occur exit and display these alert msg

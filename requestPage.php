@@ -1,3 +1,6 @@
+<?php
+require('connect.php');
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -67,11 +70,12 @@
       }
       .empty-box{
         width: 960px;
-        height: 264px;
+        height: 400px;
         background: rgba(97, 166, 213, 0.75);
         border-radius: 6px;
         justify-content: space-around;
         align-items: center;
+        padding-bottom: 20px;
       }
       .empty-box .inner{
         width: 204px;
@@ -87,6 +91,25 @@
         color: #fff;
       }
     </style>
+    <style>
+table {
+  border-collapse: collapse;
+  width: 80%;
+  padding-left: 50px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
   </head>
   <body>
     <div class="page">
@@ -116,7 +139,7 @@
       </div>
       <div class="main">
         <div class="top text-center py-3">
-          <h3>It's nearly three months to your big day!</h3>
+          <h4>It's nearly three months to your big day!</h4>
         </div>
         <div class="body">
           <h4 class="mt-5 ml-3">Let's get this party started</h4>
@@ -126,25 +149,70 @@
             your searches from your dashboard.
           </p>
           <div class="empty-box d-flex mx-auto">
-            <div class="inner">
 
-            </div>
-            <div class="inner">
+            <!-- DataTables Example -->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fas fa-table"></i>
+              Request Result</div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" cellspacing="0">
+                  <thead>
+                    <tr>
+                     <th>Vendors</th>
+                      <th>Fee Charged</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                       <th>Vendors</th>
+                      <th>Fee Charged</th>
+                      <th>Total</th>
+                    
+                    </tr>
+                  </tfoot>
 
-            </div>
-            <div class="inner">
+<tbody>
+<?php
+$conn = mysqli_connect($servername, $username, $password, $DBname);
+//check connection
+if (!$conn) {
+  die("connection failed: " . mysqli_connect_error());
+}
 
-            </div>
-            <div class="inner">
+if (isset($_POST["submit"])) {
+  $budget = mysqli_real_escape_string($conn, $_POST["budget"]);
+  $loc = mysqli_real_escape_string($conn, $_POST["location"]);
+  $date = mysqli_real_escape_string($conn, $_POST["date"]);
+
+$sql = "SELECT DISTINCT service AS Vendors, SUM(act_price) AS Price, count(act_price)AS total FROM `vendors` GROUP BY service;";
+
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+    echo "<tr><td>"
+   .$row['Vendors']."<td>".
+   $row['Price']."<td>".
+   $row['total'].
+   "</td></tr>";
+    # code...
+  }
+  echo "</table>";
+}
+else{
+  echo "0 result";
+}
+}
+mysqli_close($conn);
+?>
+</table>
 
             </div>
           </div>
-          <h4 class="mt-5 ml-3">Reception Venues</h4>
-          <p class="w-100 text-center mt-5">
-            Your style is so unique and so is our collection of reception venues,<br>
-            carefully curated just for you. Click below to view them.
-          </p>
-          <button type="button" class="btn px-4 mt-4 d-block mx-auto" name="button">See All</button>
         </div>
       </div>
     </div>

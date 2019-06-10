@@ -1,6 +1,4 @@
-<?php ;
-
-?>
+<?php require('form/form.php');?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -58,6 +56,7 @@
       }
       .request-form{
         margin-left: 36px;
+        max-width: 907px;
         justify-content: space-between;
         font-family: 'Josefin Sans', sans-serif;
         background: #fff;
@@ -73,8 +72,8 @@
       .request-form .input-div:not(:last-child){
         padding-top: 12.5px;
         padding-bottom: 12.5px;
-        padding-right: 17px;
-        margin-right: 17px;
+        padding-right: 27px;
+        margin-right: 27px;
         border-right: 1px solid #c4c4c4;
       }
       .input-div input{
@@ -82,8 +81,6 @@
         font-weight: 600;
         line-height: 19px;
         outline: none;
-        font-size: 12px;
-        width: 200px;
       }
       .highlight{
         padding-top: 58px;
@@ -157,7 +154,7 @@
         position: fixed;
         background-color: rgba(0, 0, 0, 0.6)
       }
-      .modal{
+      .login-div{
         display: none;
         top: 0;
         bottom: 0;
@@ -171,10 +168,7 @@
         border-radius: 12px;
         margin: auto;
       }
-      .signup-div{
-        width: 430px
-      }
-      .modal input{
+      .login-div input{
         padding: 5px 10px;
         height: 57px;
         margin-bottom: 30px;
@@ -185,21 +179,21 @@
         font-size: 18px;
         line-height: 22px;
       }
-      .modal input[type="submit"]{
+      .login-div input[type="submit"]{
         background: #61A6D5;
         color: #fff;
       }
-      .modal p, .modal h4{
+      .login-div p, .login-div h4{
         font-family: 'Montserrat', sans-serif;
       }
-      .modal h4{
+      .login-div h4{
         font-weight: 600;
         font-size: 20px;
         line-height: 24px;
       }
-      .modal p{
+      .login-div p{
         font-weight: 500;
-        font-size: 12px;
+        font-size: 14px;
         line-height: 17px;
       }
     </style>
@@ -208,26 +202,27 @@
     <div class="overlay w-100 h-100"></div>
     <div class="login-div modal p-5 mx-auto">
       <h4 class="mb-5 text-center">Log into MRandMRS</h4>
-      <form class="" action="form.php" method="post">
+      <form class="" action="index.html" method="post">
         <input type="email" name="email" class="w-100" placeholder="Your email address">
         <input type="password" name="password" class="w-100" placeholder="Password">
-        <input type="submit" name="submit" class="w-100 border-0" value="GO">
+        <input type="submit" class="w-100 border-0" value="GO">
         <div class="text-center">
           <p>Forgot password?</p>
-          <p>Not a member yet? <a href="#" class="signup-link">Join now!</a> </p>
+          <p>Not a member yet? <a href="#">Join now!</a> </p>
         </div>
       </form>
     </div>
-    <div class="signup-div modal p-5 mx-auto">
-      <h4 class="mb-3 text-center">Your personal wedding planning begins right now!</h4>
-      <p class="text-center">The bets local vendors, curated venues and all the advice you need to have a unique wedding for you!</p>
-      <form class="" action="save_details.php" method="post">
-        <input type="email" name="email" class="w-100" placeholder="Email">
-        <input type="password" name="password" class="w-100" placeholder="Password">
-        <input type="submit" name="submit" class="w-100 border-0" value="Sign Up">
+    <div class="login-div modal p-5 mx-auto">
+      <h4 class="mb-5 text-center">Log into MRandMRS</h4>
+      <form class="" action="index.html" method="post">
+        <input type="email" class="w-100" placeholder="Your email address" name="username" id="email" autocomplete="off"/>
+        <input type="password" name="password" class="w-100" placeholder="Password" id="passwd" autocomplete="off"/>
+        <input type="submit" class="w-100 border-0" value="GO">
+        <div class="lebels_fields" align="left" id="login_status" style="color: red;"><?php echo "$Errmsg1","$Errmsg2","$Errmsg3";?>
+        </div>
         <div class="text-center">
-          <p>By signing up, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy.</a></p>
-          <p>Already a member of MRandMRS? <a href="#" class="sign-in-link">Log In</a></p>
+          <p>Forgot password?</p>
+          <p>Not a member yet? <a href="#">Join now!</a> </p>
         </div>
       </form>
     </div>
@@ -242,37 +237,38 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-5 ml-auto">
             <li class="nav-item mr-3">
-              <a class="nav-link sign-in-link" href="#">Sign In</a>
+              <a class="nav-link" id="sign-in-link" href="">Sign In</a>
             </li>
             <li class="nav-item ml-0">
-              <a class="nav-link btn signup-btn signup-link" href="">SIGN UP</a>
+              <a class="nav-link btn signup-btn" href="">SIGN UP</a>
             </li>
           </ul>
         </div>
       </nav>
       <div class="row mx-0">
         <div class="col-12 tagline">
-          <h1>Wedding Planner for<br>African Couples</h1>
+          <h1 class="mb-0">MRandMRS</h1>
+          <h2>Wedding Planner for African Couples</h2>
         </div>
         <div class="col-md-9">
 
         </div>
       </div>
-      <form class="" action="requestPage.php" method="post">
+      <form class="" action="index.html" method="post">
       <div class="row mx-0">
         <div class="col-xs-12 request-form position-relative">
           <div class="d-inline-flex input-div align-middle">
-            <input class="d-block border-0" type="text" name="budget" placeholder="What is your Budget?">
+            <input class="d-block border-0" type="text" name="budget" placeholder="Enter Your Budget">
           </div>
           <div class="d-inline-flex input-div align-middle">
-            <input class="d-block border-0" type="text" name="location" placeholder="Where do you want it happen?">
+            <input class="d-block border-0" type="text" name="location" placeholder="Enter Your Location">
           </div>
           <div class="d-inline-flex input-div align-middle">
-            <input type="date" name="date" class="d-block border-0" placeholder="When are you getting married?">
+            <input type="text" class="d-block border-0" placeholder="Wedding Date">
             <!-- <input class="d-block border-0" type="date" name="date" placeholder="Wedding Date"> -->
           </div>
           <div class="d-inline-flex input-div align-middle">
-            <input type="submit" name="submit" class="px-2 border-0" value="Tie the Knot">
+            <input type="submit" class="px-2 border-0" value="SEARCH">
           </div>
         </div>
       </div>
@@ -317,21 +313,21 @@
           </div>
         </div>
       </div>
-      <form class="" action="requestPage.php" method="post">
+      <form class="" action="index.html" method="post">
       <div class="row mx-0">
         <div class="col-xs-12 request-form position-relative mx-auto">
           <div class="d-inline-flex input-div align-middle">
-            <input class="d-block border-0" type="text" name="budget" placeholder="What is your Budget?">
+            <input class="d-block border-0" type="text" name="budget" placeholder="Enter Your Budget">
           </div>
           <div class="d-inline-flex input-div align-middle">
-            <input class="d-block border-0" type="text" name="location" placeholder="Where do you want it happen?">
+            <input class="d-block border-0" type="text" name="location" placeholder="Enter Your Location">
           </div>
           <div class="d-inline-flex input-div align-middle">
-            <input type="date" class="d-block border-0" name="date" placeholder="When are you getting married?">
+            <input type="text" class="d-block border-0" placeholder="Wedding Date">
             <!-- <input class="d-block border-0" type="date" name="date" placeholder="Wedding Date"> -->
           </div>
           <div class="d-inline-flex input-div align-middle">
-            <input type="submit" name="submit" class="px-2 border-0" value="Tie the Knot">
+            <input type="submit" class="px-2 border-0" value="SEARCH">
           </div>
         </div>
       </div>
@@ -342,19 +338,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      $(".sign-in-link").click((e) => {
-        console.log('ssdkds');
+      $("#sign-in-link").click((e) => {
         e.preventDefault();
         $(".overlay").show();
-        $(".modal").hide();
         $(".login-div").show();
-      });
-
-      $(".signup-link").click((e) => {
-        e.preventDefault();
-        $(".overlay").show();
-        $(".modal").hide();
-        $(".signup-div").show();
       })
 
       $(".overlay").click(() => {
