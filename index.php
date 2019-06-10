@@ -19,7 +19,7 @@
         background-image: url('assets/img/hero-bg.jpg');
       }
       .request-form input[type="submit"]{
-        background-color: #61a6d5;
+        background-color: #3f80ea;
         border-radius: 24px;
         color: #fff;
       }
@@ -29,7 +29,7 @@
         font-weight: 600;
         font-size: 31px;
         line-height: 36px;
-        color: #61A6D5 !important;
+        color: #3f80ea !important;
       }
       .navbar a{
         color: #fff;
@@ -37,7 +37,7 @@
         font-weight: 600;
       }
       a.signup-btn{
-        background-color: #fff;
+        background-color: #3f80ea;
         border-radius: 29px;
         padding-right: 25px !important;
         padding-left: 25px !important;
@@ -48,7 +48,7 @@
       .tagline{
         margin: 226px 0 89px;
         padding-left: 36px;
-        color: #fff;
+        color: #f9fafc;
         font-family: 'Montserrat', sans-serif;
         font-size: 31px;
       }
@@ -265,10 +265,10 @@
             <input class="d-block border-0" type="text" name="budget" placeholder="What is your Budget?">
           </div>
           <div class="d-inline-flex input-div align-middle">
-            <input class="d-block border-0" type="text" name="location" placeholder="Where do you want it happen?">
+            <input class="d-block border-0" type="text" name="location" placeholder="Where do you want it to happen?">
           </div>
           <div class="d-inline-flex input-div align-middle">
-            <input type="date" name="date" class="d-block border-0" placeholder="When are you getting married?">
+            <input type="text"  name="date" class="d-block border-0" placeholder="When are you getting married?">
             <!-- <input class="d-block border-0" type="date" name="date" placeholder="Wedding Date"> -->
           </div>
           <div class="d-inline-flex input-div align-middle">
@@ -324,10 +324,10 @@
             <input class="d-block border-0" type="text" name="budget" placeholder="What is your Budget?">
           </div>
           <div class="d-inline-flex input-div align-middle">
-            <input class="d-block border-0" type="text" name="location" placeholder="Where do you want it happen?">
+            <input class="d-block border-0" type="text" name="location" placeholder="Where do you want it to happen?">
           </div>
           <div class="d-inline-flex input-div align-middle">
-            <input type="date" class="d-block border-0" name="date" placeholder="When are you getting married?">
+            <input type="text" class="d-block border-0" name="date" placeholder="When are you getting married?">
             <!-- <input class="d-block border-0" type="date" name="date" placeholder="Wedding Date"> -->
           </div>
           <div class="d-inline-flex input-div align-middle">

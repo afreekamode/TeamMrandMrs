@@ -187,7 +187,10 @@ if (isset($_POST["submit"])) {
   $loc = mysqli_real_escape_string($conn, $_POST["location"]);
   $date = mysqli_real_escape_string($conn, $_POST["date"]);
 
-$sql = "SELECT DISTINCT service AS Vendors, SUM(act_price) AS Price, count(act_price)AS total FROM `vendors` GROUP BY service;";
+  if (empty($budget)) {
+    die();
+    
+$sql = "SELECT DISTINCT service , SUM('dj','hairstyle','catering','makeup','hall') AS total FROM `vendors` GROUP BY service;";
 
 $result = mysqli_query($conn, $sql);
 
@@ -195,18 +198,23 @@ if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
     echo "<tr><td>"
-   .$row['Vendors']."<td>".
-   $row['Price']."<td>".
+   .$row['service']."<td>".
    $row['total'].
    "</td></tr>";
     # code...
   }
   echo "</table>";
-}
-else{
+
+}else{
+  echo "Please a detail";
+  }
+}else{
   echo "0 result";
+  die();
 }
 }
+
+
 mysqli_close($conn);
 ?>
 </table>
