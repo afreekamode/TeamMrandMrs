@@ -56,7 +56,6 @@
       }
       .request-form{
         margin-left: 36px;
-        max-width: 907px;
         justify-content: space-between;
         font-family: 'Josefin Sans', sans-serif;
         background: #fff;
@@ -72,8 +71,8 @@
       .request-form .input-div:not(:last-child){
         padding-top: 12.5px;
         padding-bottom: 12.5px;
-        padding-right: 27px;
-        margin-right: 27px;
+        padding-right: 17px;
+        margin-right: 17px;
         border-right: 1px solid #c4c4c4;
       }
       .input-div input{
@@ -81,6 +80,8 @@
         font-weight: 600;
         line-height: 19px;
         outline: none;
+        font-size: 12px;
+        width: 200px;
       }
       .highlight{
         padding-top: 58px;
@@ -154,7 +155,7 @@
         position: fixed;
         background-color: rgba(0, 0, 0, 0.6)
       }
-      .login-div{
+      .modal{
         display: none;
         top: 0;
         bottom: 0;
@@ -168,7 +169,10 @@
         border-radius: 12px;
         margin: auto;
       }
-      .login-div input{
+      .signup-div{
+        width: 430px
+      }
+      .modal input{
         padding: 5px 10px;
         height: 57px;
         margin-bottom: 30px;
@@ -179,21 +183,21 @@
         font-size: 18px;
         line-height: 22px;
       }
-      .login-div input[type="submit"]{
+      .modal input[type="submit"]{
         background: #61A6D5;
         color: #fff;
       }
-      .login-div p, .login-div h4{
+      .modal p, .modal h4{
         font-family: 'Montserrat', sans-serif;
       }
-      .login-div h4{
+      .modal h4{
         font-weight: 600;
         font-size: 20px;
         line-height: 24px;
       }
-      .login-div p{
+      .modal p{
         font-weight: 500;
-        font-size: 14px;
+        font-size: 12px;
         line-height: 17px;
       }
     </style>
@@ -208,21 +212,20 @@
         <input type="submit" class="w-100 border-0" value="GO">
         <div class="text-center">
           <p>Forgot password?</p>
-          <p>Not a member yet? <a href="#">Join now!</a> </p>
+          <p>Not a member yet? <a href="#" class="signup-link">Join now!</a> </p>
         </div>
       </form>
     </div>
-    <div class="login-div modal p-5 mx-auto">
-      <h4 class="mb-5 text-center">Log into MRandMRS</h4>
+    <div class="signup-div modal p-5 mx-auto">
+      <h4 class="mb-3 text-center">Your personal wedding planning begins right now!</h4>
+      <p class="text-center">The bets local vendors, curated venues and all the advice you need to have a unique wedding for you!</p>
       <form class="" action="index.html" method="post">
-        <input type="email" class="w-100" placeholder="Your email address" name="username" id="email" autocomplete="off"/>
-        <input type="password" name="password" class="w-100" placeholder="Password" id="passwd" autocomplete="off"/>
-        <input type="submit" class="w-100 border-0" value="GO">
-        <div class="lebels_fields" align="left" id="login_status" style="color: red;"><?php echo "$Errmsg1","$Errmsg2","$Errmsg3";?>
-        </div>
+        <input type="email" name="email" class="w-100" placeholder="Email">
+        <input type="password" name="password" class="w-100" placeholder="Password (7 or more characters)">
+        <input type="submit" class="w-100 border-0" value="Sign Up">
         <div class="text-center">
-          <p>Forgot password?</p>
-          <p>Not a member yet? <a href="#">Join now!</a> </p>
+          <p>By signing up, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy.</a></p>
+          <p>Already a member of MRandMRS? <a href="#" class="sign-in-link">Log In</a></p>
         </div>
       </form>
     </div>
@@ -237,18 +240,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-5 ml-auto">
             <li class="nav-item mr-3">
-              <a class="nav-link" id="sign-in-link" href="">Sign In</a>
+              <a class="nav-link sign-in-link" href="#">Sign In</a>
             </li>
             <li class="nav-item ml-0">
-              <a class="nav-link btn signup-btn" href="">SIGN UP</a>
+              <a class="nav-link btn signup-btn signup-link" href="">SIGN UP</a>
             </li>
           </ul>
         </div>
       </nav>
       <div class="row mx-0">
         <div class="col-12 tagline">
-          <h1 class="mb-0">MRandMRS</h1>
-          <h2>Wedding Planner for African Couples</h2>
+          <h1>Wedding Planner for<br>African Couples</h1>
         </div>
         <div class="col-md-9">
 
@@ -258,17 +260,17 @@
       <div class="row mx-0">
         <div class="col-xs-12 request-form position-relative">
           <div class="d-inline-flex input-div align-middle">
-            <input class="d-block border-0" type="text" name="budget" placeholder="Enter Your Budget">
+            <input class="d-block border-0" type="text" name="budget" placeholder="What is your Budget?">
           </div>
           <div class="d-inline-flex input-div align-middle">
-            <input class="d-block border-0" type="text" name="location" placeholder="Enter Your Location">
+            <input class="d-block border-0" type="text" name="location" placeholder="Where do you wanna have your wedding?">
           </div>
           <div class="d-inline-flex input-div align-middle">
-            <input type="text" class="d-block border-0" placeholder="Wedding Date">
+            <input type="text" class="d-block border-0" placeholder="When are you getting married?">
             <!-- <input class="d-block border-0" type="date" name="date" placeholder="Wedding Date"> -->
           </div>
           <div class="d-inline-flex input-div align-middle">
-            <input type="submit" class="px-2 border-0" value="SEARCH">
+            <input type="submit" class="px-2 border-0" value="Tie the Knot">
           </div>
         </div>
       </div>
@@ -317,17 +319,17 @@
       <div class="row mx-0">
         <div class="col-xs-12 request-form position-relative mx-auto">
           <div class="d-inline-flex input-div align-middle">
-            <input class="d-block border-0" type="text" name="budget" placeholder="Enter Your Budget">
+            <input class="d-block border-0" type="text" name="budget" placeholder="What is your Budget?">
           </div>
           <div class="d-inline-flex input-div align-middle">
-            <input class="d-block border-0" type="text" name="location" placeholder="Enter Your Location">
+            <input class="d-block border-0" type="text" name="location" placeholder="Where do you wanna have your wedding?">
           </div>
           <div class="d-inline-flex input-div align-middle">
-            <input type="text" class="d-block border-0" placeholder="Wedding Date">
+            <input type="text" class="d-block border-0" name="date" placeholder="When are you getting married?">
             <!-- <input class="d-block border-0" type="date" name="date" placeholder="Wedding Date"> -->
           </div>
           <div class="d-inline-flex input-div align-middle">
-            <input type="submit" class="px-2 border-0" value="SEARCH">
+            <input type="submit" class="px-2 border-0" value="Tie the Knot">
           </div>
         </div>
       </div>
@@ -338,10 +340,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      $("#sign-in-link").click((e) => {
+      $(".sign-in-link").click((e) => {
+        console.log('ssdkds');
         e.preventDefault();
         $(".overlay").show();
+        $(".modal").hide();
         $(".login-div").show();
+      });
+
+      $(".signup-link").click((e) => {
+        e.preventDefault();
+        $(".overlay").show();
+        $(".modal").hide();
+        $(".signup-div").show();
       })
 
       $(".overlay").click(() => {
