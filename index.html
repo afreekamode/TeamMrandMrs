@@ -1,3 +1,5 @@
+<?php require('form/form.php');?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -213,9 +215,11 @@
     <div class="login-div modal p-5 mx-auto">
       <h4 class="mb-5 text-center">Log into MRandMRS</h4>
       <form class="" action="index.html" method="post">
-        <input type="email" name="email" class="w-100" placeholder="Your email address">
-        <input type="password" name="password" class="w-100" placeholder="Password">
+        <input type="email" class="w-100" placeholder="Your email address" name="username" id="email" autocomplete="off"/>
+        <input type="password" name="password" class="w-100" placeholder="Password" id="passwd" autocomplete="off"/>
         <input type="submit" class="w-100 border-0" value="GO">
+        <div class="lebels_fields" align="left" id="login_status" style="color: red;"><?php echo "$Errmsg1","$Errmsg2","$Errmsg3";?>
+        </div>
         <div class="text-center">
           <p>Forgot password?</p>
           <p>Not a member yet? <a href="#">Join now!</a> </p>
