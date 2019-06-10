@@ -8,8 +8,8 @@ $Errmsg2 = "";
 $Errmsg3 = "";
 $Errmsg4 = "";
 
-if (isset($_POST['login'])){
-		$email = trim(strip_tags($_POST['username']));
+if (isset($_POST['submit'])){
+		$email = trim(strip_tags($_POST['email']));
 		$pword = trim(strip_tags($_POST['password']));
 		$encrypted_md5_password = md5($pword);
 	
@@ -41,11 +41,9 @@ if (isset($_POST['login'])){
 				//used to check output of each row data 
 				while($row_check = mysqli_fetch_assoc($result_check)){
 					
-					$_SESSION["licenced_users"] = $email;
-					$_SESSION['licenced_users'] = $email;
 					//the header redirect the user to the index.php page
-					header("location: index.php");
-				//header("location: index.php?op=atHome")
+					
+				header("location: index.php")
 				}
 			}else{
 				//if an error occur exit and display these alert msg

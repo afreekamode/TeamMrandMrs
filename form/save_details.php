@@ -3,19 +3,14 @@
 session_start();
 require('form/connect.php');
 
-	if(isset($_POST["page"]) && !empty($_POST["page"]))
-{
+
 	//Sign-up Page Starts here
-	if($_POST["page"] == "users_registration")
-	{
-		$firstname = trim(strip_tags($_POST['firstname']));
-		$lastname = trim(strip_tags($_POST['lastname']));
+	if (isset($_POST['submit'])){
 		$user_email = trim(strip_tags($_POST['email']));
-		$user_password = trim(strip_tags($_POST['passwd']));
-		$ruser_password = trim(strip_tags($_POST['rpasswd']));
+		$user_password = trim(strip_tags($_POST['password']));
 		$encrypted_md5_password = md5($user_password);
 		
-		if($firstname == "" || $lastname == "" || $user_email == "" || $user_password == "" || $ruser_password == "")
+		if( $user_email == "" || $user_password == "")
 		{
 			echo '<br><div class="info">Sorry, all fields are required to create a new account. Thank you.</div><br>';
 		}
@@ -23,10 +18,7 @@ require('form/connect.php');
 		{
 			echo '<br><div class="info">Sorry, Your email address is invalid, please enter a valid email address to proceed. Thank you.</div><br>';
 		}
-		elseif($user_password != $ruser_password)
-		{
-			echo '<br><div class="info">Your password do not match!</div><br>';
-		}
+		
 		$sql_check = "SELECT * FROM signup_table WHERE (email = '$user_email')";
 		$check_for_duplicates = mysqli_query($conn, $sql_check);
 
@@ -36,14 +28,11 @@ require('form/connect.php');
 		}
 		else
 		{
-					$sql = "INSERT INTO signup_table (firstname, lastname, email, password, log_date) VALUES('$firstname' , '$lastname', '$user_email', '$encrypted_md5_password', now())";
+					$sql = "INSERT INTO signup_table (email, password, log_date) VALUES('$user_email', '$encrypted_md5_password', now())";
 			
 			if (mysqli_query($conn, $sql)) {
 
-				$_SESSION["licenced_users"] = $user_email;
-				$_SESSION["licenced_users"] = 'signup.php';
-				echo 'signup.php?welcome='.$firstname.'&';
-				echo 'registered_successfully=yes';
+				header("location: admin.php?admin={$row_check['ademail']}");
 				}
 			else
 			{

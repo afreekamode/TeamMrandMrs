@@ -1,4 +1,6 @@
-<?php require('form/form.php');?>
+<?php ;
+
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -206,10 +208,10 @@
     <div class="overlay w-100 h-100"></div>
     <div class="login-div modal p-5 mx-auto">
       <h4 class="mb-5 text-center">Log into MRandMRS</h4>
-      <form class="" action="index.html" method="post">
+      <form class="" action="form.php" method="post">
         <input type="email" name="email" class="w-100" placeholder="Your email address">
         <input type="password" name="password" class="w-100" placeholder="Password">
-        <input type="submit" class="w-100 border-0" value="GO">
+        <input type="submit" name="submit" class="w-100 border-0" value="GO">
         <div class="text-center">
           <p>Forgot password?</p>
           <p>Not a member yet? <a href="#" class="signup-link">Join now!</a> </p>
@@ -219,7 +221,7 @@
     <div class="signup-div modal p-5 mx-auto">
       <h4 class="mb-3 text-center">Your personal wedding planning begins right now!</h4>
       <p class="text-center">The bets local vendors, curated venues and all the advice you need to have a unique wedding for you!</p>
-      <form class="" action="" method="post">
+      <form class="" action="save_details.php" method="post">
         <input type="email" name="email" class="w-100" placeholder="Email">
         <input type="password" name="password" class="w-100" placeholder="Password">
         <input type="submit" name="submit" class="w-100 border-0" value="Sign Up">
